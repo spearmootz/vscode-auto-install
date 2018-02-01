@@ -4,6 +4,9 @@
     "description": "Install dependencies as you code",
     "version": "0.0.1",
     "publisher": "spearmootz",
+    "author": "spearmootz",
+    "repository": "spearmootz/vscode-auto-install",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.19.0"
     },
