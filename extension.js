@@ -28,20 +28,26 @@ const startAutoInstalls = () => {
     vscode.window.showInformationMessage('Starting Auto Install');
 
     getWorkspacePaths().forEach((workspace) => {
+        let showParseError = true;
+
         if (autoInstalls[workspace] != null) {
             stopAutoInstall(workspace);
         }
+
         const autoInstall = spawn(`${__dirname}/node_modules/auto-install/lib/index.js`, arguments, { async: true, cwd: workspace });
         autoInstalls[workspace] = autoInstall;
 
         autoInstall.stdout.on('data', (data) => {
             if (/npm init/.test(data)) {
                 vscode.window.showErrorMessage(`Auto Install error: package.json is not found in the project root`);
+            } else if (/Could not parse/.test(data) && showParseError) {
+                showParseError = false;
+                vscode.window.showErrorMessage(`Auto Install error: there are some errors parsing out files`);
             }
 
-            outputToConsole(data);
+            outputToConsole('info: ' + data);
         });
-        autoInstall.stderr.on('data', outputToConsole);
+        autoInstall.stderr.on('data', data => outputToConsole('error: ' + data));
 
         autoInstall.on("error", err => {
             outputToConsole(err);

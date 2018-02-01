@@ -2,7 +2,7 @@
     "name": "vscode-auto-install",
     "displayName": "Auto Install",
     "description": "Install dependencies as you code",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "spearmootz",
     "author": "spearmootz",
     "repository": "spearmootz/vscode-auto-install",
@@ -37,7 +37,7 @@
             "properties": {
                 "autoInstall.startOnLaunch": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Start auto install on launch."
                 },
                 "autoInstall.secure": {
