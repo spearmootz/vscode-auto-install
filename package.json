@@ -1,11 +1,12 @@
 {
     "name": "vscode-auto-install",
-    "displayName": "vscode-auto-install",
+    "displayName": "Auto Install",
     "description": "Install dependencies as you code",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "publisher": "spearmootz",
     "author": "spearmootz",
     "repository": "spearmootz/vscode-auto-install",
+    "homepage": "https://github.com/spearmootz/vscode-auto-install/blob/master/README.md",
     "license": "MIT",
     "engines": {
         "vscode": "^1.19.0"
